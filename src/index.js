@@ -7,7 +7,7 @@ const App = () => {
         (error) => console.log(error)
     );
 
-    return <div>Hello World</div>;
+    return <div>Latitude: </div>;
 
 };
 
