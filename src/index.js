@@ -14,6 +14,13 @@ import ReactDOM from 'react-dom';
 
 // Equivalent Class-Based Component.
 class App extends React.Component {
+
+    // This is not required, but we can use it to initialize state.
+    constructor(props) {
+        super(props);
+    }
+
+    // React requires us to extend render.
     render() {
         window.navigator.geolocation.getCurrentPosition(
             (position) => console.log(position),
