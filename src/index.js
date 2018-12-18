@@ -41,7 +41,7 @@ class App extends React.Component {
         } else if (this.state.lat && this.state.lon) {
             return <div>Lat: {this.state.lat}, Lon: {this.state.lon}</div>;
         } else {
-            return <div>Loading!</div>;
+            return <div>Loading...</div>;
         }
     }
 }
