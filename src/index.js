@@ -21,15 +21,16 @@ class App extends React.Component {
 
         // Initializing state.
         this.state = { lat: null };
-    }
 
-    // React requires us to extend render.
-    render() {
+        // Getting GeoLocation
         window.navigator.geolocation.getCurrentPosition(
             (position) => console.log(position),
             (error) => console.log(error)
         );
+    }
 
+    // React requires us to extend render.
+    render() {
         return <div>Latitude: {this.state.lat}</div>;
     }
 }
