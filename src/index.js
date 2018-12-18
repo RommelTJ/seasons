@@ -36,7 +36,13 @@ class App extends React.Component {
 
     // React requires us to extend render.
     render() {
-        return <div>Latitude: {this.state.lat}, Longitude: {this.state.lon} </div>;
+        return (
+            <div>
+                Latitude: {this.state.lat},
+                Longitude: {this.state.lon},
+                Error: {this.state.errorMessage}
+            </div>
+        );
     }
 }
 
