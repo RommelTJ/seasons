@@ -20,7 +20,7 @@ class App extends React.Component {
         super(props);
 
         // Initializing state.
-        this.state = { lat: null, lon: null };
+        this.state = { lat: null, lon: null, errorMessage: "" };
 
         // Getting GeoLocation
         window.navigator.geolocation.getCurrentPosition(
