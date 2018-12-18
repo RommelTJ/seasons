@@ -28,7 +28,9 @@ class App extends React.Component {
                 // Calling setState
                 this.setState({ lat: position.coords.latitude, lon: position.coords.longitude });
             },
-            (error) => console.log(error)
+            (error) => {
+                this.setState({ errorMessage: "Uh-oh! " + error.message });
+            }
         );
     }
 
