@@ -30,7 +30,7 @@ class App extends React.Component {
             (error) => console.log(error)
         );
 
-        return <div>Latitude: </div>;
+        return <div>Latitude: {this.state.lat}</div>;
     }
 }
 
