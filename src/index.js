@@ -36,13 +36,13 @@ class App extends React.Component {
 
     // React requires us to extend render.
     render() {
-        return (
-            <div>
-                Latitude: {this.state.lat},
-                Longitude: {this.state.lon},
-                Error: {this.state.errorMessage}
-            </div>
-        );
+        if (this.state.errorMessage && !this.state.lat) {
+            return <div>{this.state.errorMessage}</div>;
+        } else if (this.state.lat && this.state.lon) {
+            return <div>Lat: {this.state.lat}, Lon: {this.state.lon}</div>;
+        } else {
+            return <div>Loading!</div>;
+        }
     }
 }
 
