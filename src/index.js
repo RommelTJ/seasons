@@ -20,13 +20,13 @@ class App extends React.Component {
         super(props);
 
         // Initializing state.
-        this.state = { lat: null };
+        this.state = { lat: null, lon: null };
 
         // Getting GeoLocation
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
                 // Calling setState
-                this.setState({ lat: position.coords.latitude });
+                this.setState({ lat: position.coords.latitude, lon: position.coords.longitude });
             },
             (error) => console.log(error)
         );
@@ -34,7 +34,7 @@ class App extends React.Component {
 
     // React requires us to extend render.
     render() {
-        return <div>Latitude: {this.state.lat}</div>;
+        return <div>Latitude: {this.state.lat}, Longitude: {this.state.lon} </div>;
     }
 }
 
