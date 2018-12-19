@@ -12,6 +12,20 @@ import ReactDOM from 'react-dom';
 //
 // };
 
+/*
+ * Component Lifecycle
+ *
+ * 1. Constructor - Good place to do initial setup.
+ * 2. Render - Avoid doing anything besides returning JSX
+ * x - Content visible on screen
+ * 3. ComponentDidMount - Good place to do data-loading.
+ * x - Sit an wait for updates...
+ * 4. ComponentDidUpdate - Good place to do more data-loading when state/props change
+ * x - Sit and wait until this component is no longer shown
+ * 5. ComponentWillUnmount - Good place to do cleanup (especially non-React stuff).
+ * 
+ */
+
 // Equivalent Class-Based Component.
 class App extends React.Component {
 
