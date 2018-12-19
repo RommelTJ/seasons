@@ -34,6 +34,14 @@ class App extends React.Component {
         );
     }
 
+    componentDidMount() {
+        console.log("My component was rendered to the screen.");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("My component was just updated. It re-rendered.")
+    }
+
     // React requires us to extend render.
     render() {
         if (this.state.errorMessage && !this.state.lat) {
