@@ -23,7 +23,7 @@ import ReactDOM from 'react-dom';
  * 4. ComponentDidUpdate - Good place to do more data-loading when state/props change
  * x - Sit and wait until this component is no longer shown
  * 5. ComponentWillUnmount - Good place to do cleanup (especially non-React stuff).
- * 
+ *
  */
 
 // Equivalent Class-Based Component.
@@ -35,21 +35,14 @@ class App extends React.Component {
 
         // Initializing state.
         this.state = { lat: null, lon: null, errorMessage: "" };
-
-        // Getting GeoLocation
-        window.navigator.geolocation.getCurrentPosition(
-            (position) => {
-                // Calling setState
-                this.setState({ lat: position.coords.latitude, lon: position.coords.longitude });
-            },
-            (error) => {
-                this.setState({ errorMessage: "Uh-oh! " + error.message });
-            }
-        );
     }
 
     componentDidMount() {
-        console.log("My component was rendered to the screen.");
+        // Getting GeoLocation
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => this.setState({ lat: position.coords.latitude, lon: position.coords.longitude }),
+            (error) => this.setState({ errorMessage: "Uh-oh! " + error.message })
+        );
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
