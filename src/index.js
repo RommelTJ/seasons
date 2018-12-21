@@ -30,12 +30,15 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
 
     // This is not required, but we can use it to initialize state.
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
+    //
+    //     // Initializing state.
+    //     this.state = { lat: null, lon: null, errorMessage: "" };
+    // }
 
-        // Initializing state.
-        this.state = { lat: null, lon: null, errorMessage: "" };
-    }
+    // Alternate way to initialize state.
+    state = { lat: null, lon: null, errorMessage: "" };
 
     componentDidMount() {
         // Getting GeoLocation
