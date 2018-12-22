@@ -54,8 +54,8 @@ class App extends React.Component {
         console.log("My component was just updated. It re-rendered.")
     }
 
-    // React requires us to extend render.
-    render() {
+    // Helper function
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>{this.state.errorMessage}</div>;
         } else if (this.state.lat && this.state.lon) {
@@ -63,6 +63,15 @@ class App extends React.Component {
         } else {
             return <Spinner message="Please accept the location access request" />;
         }
+    }
+
+    // React requires us to extend render.
+    render() {
+        return (
+            <div>
+                { this.renderContent() }
+            </div>
+        );
     }
 }
 
