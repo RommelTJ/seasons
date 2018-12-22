@@ -17,7 +17,7 @@ import Spinner from './Spinner';
  *
  */
 
-// Equivalent Class-Based Component.
+// Class-Based Component.
 class App extends React.Component {
 
     // Alternate way to initialize state.
