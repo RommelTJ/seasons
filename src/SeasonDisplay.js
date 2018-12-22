@@ -1,6 +1,8 @@
 import React from 'react';
 import './SeasonDisplay.css';
 
+// CONFIG OBJECTS
+
 const seasonConfig = {
     summer: {
         text: "Let's hit the beach!",
@@ -12,6 +14,8 @@ const seasonConfig = {
     }
 };
 
+// HELPER OBJECTS
+
 const getSeason = (lat, month) => {
     if (month > 2 && month < 9) {
         return lat > 0 ? "summer" : "winter";
@@ -19,6 +23,8 @@ const getSeason = (lat, month) => {
         return lat > 0 ? "winter" : "summer";
     }
 };
+
+// RENDER OBJECTS
 
 const SeasonDisplay = (props) => {
     const season = getSeason(props.lat, new Date().getMonth());
