@@ -3,17 +3,6 @@ import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay'
 import Spinner from './Spinner';
 
-// Functional Component.
-// const App = () => {
-//     window.navigator.geolocation.getCurrentPosition(
-//         (position) => console.log(position),
-//         (error) => console.log(error)
-//     );
-//
-//     return <div>Latitude: </div>;
-//
-// };
-
 /*
  * Component Lifecycle
  *
