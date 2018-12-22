@@ -31,14 +31,6 @@ import Spinner from './Spinner';
 // Equivalent Class-Based Component.
 class App extends React.Component {
 
-    // This is not required, but we can use it to initialize state.
-    // constructor(props) {
-    //     super(props);
-    //
-    //     // Initializing state.
-    //     this.state = { lat: null, lon: null, errorMessage: "" };
-    // }
-
     // Alternate way to initialize state.
     state = { lat: null, lon: null, errorMessage: "" };
 
