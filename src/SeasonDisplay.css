@@ -21,6 +21,10 @@
     color: blue;
 }
 
+.season-display.summer i {
+    color: red;
+}
+
 .winter {
     background-color: aliceblue;
 }
