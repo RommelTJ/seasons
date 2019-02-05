@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay'
 import Spinner from './Spinner';
@@ -16,6 +16,15 @@ import Spinner from './Spinner';
  * 5. ComponentWillUnmount - Good place to do cleanup (especially non-React stuff).
  *
  */
+
+const App = () => {
+
+    const [lat, setLat] = useState(null);
+
+    return (
+        <div>Hello World</div>
+    );
+};
 
 // Class-Based Component.
 class App extends React.Component {
