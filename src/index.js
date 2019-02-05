@@ -45,34 +45,8 @@ const App = () => {
         content = <Spinner message="Please accept the location access request" />;
     }
 
-    return (
-        <div>Hello World</div>
-    );
+    return <div className="border red">{content}</div>;
 };
-
-// Class-Based Component.
-class App extends React.Component {
-
-    // Helper function
-    renderContent() {
-        if (this.state.errorMessage && !this.state.lat) {
-            return <div>{this.state.errorMessage}</div>;
-        } else if (this.state.lat && this.state.lon) {
-            return <SeasonDisplay lat={ this.state.lat } lon={ this.state.lon } />;
-        } else {
-            return <Spinner message="Please accept the location access request" />;
-        }
-    }
-
-    // React requires us to extend render.
-    render() {
-        return (
-            <div>
-                { this.renderContent() }
-            </div>
-        );
-    }
-}
 
 ReactDOM.render(
     <App />,
