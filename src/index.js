@@ -36,6 +36,15 @@ const App = () => {
         );
     }, []);
 
+    let content;
+    if (errorMessage) {
+        content = <div>Error: {errorMessage}</div>;
+    } else if (lat && lon) {
+        content = <SeasonDisplay lat={lat} lon={lon} />;
+    } else {
+        content = <Spinner message="Please accept the location access request" />;
+    }
+
     return (
         <div>Hello World</div>
     );
@@ -43,17 +52,6 @@ const App = () => {
 
 // Class-Based Component.
 class App extends React.Component {
-
-    // Alternate way to initialize state.
-    state = { lat: null, lon: null, errorMessage: "" };
-
-    componentDidMount() {
-
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("My component was just updated. It re-rendered.")
-    }
 
     // Helper function
     renderContent() {
