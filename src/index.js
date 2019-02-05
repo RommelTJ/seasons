@@ -20,7 +20,21 @@ import Spinner from './Spinner';
 const App = () => {
 
     const [lat, setLat] = useState(null);
+    const [lon, setLon] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        // Getting GeoLocation
+        window.navigator.geolocation.getCurrentPosition(
+            (position) => {
+                setLat(position.coords.latitude);
+                setLon(position.coords.longitude);
+            },
+            (error) => {
+                setErrorMessage(`Uh-oh! ${error.message}`);
+            }
+        );
+    }, []);
 
     return (
         <div>Hello World</div>
@@ -34,13 +48,7 @@ class App extends React.Component {
     state = { lat: null, lon: null, errorMessage: "" };
 
     componentDidMount() {
-        // Getting GeoLocation
-        window.navigator.geolocation.getCurrentPosition(
-            (position) =>
-                this.setState({ lat: position.coords.latitude, lon: position.coords.longitude }),
-            (error) =>
-                this.setState({ errorMessage: "Uh-oh! " + error.message })
-        );
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
