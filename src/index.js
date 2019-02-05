@@ -20,6 +20,7 @@ import Spinner from './Spinner';
 const App = () => {
 
     const [lat, setLat] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
 
     return (
         <div>Hello World</div>
