@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay'
 import Spinner from './Spinner';
+import useLocation from './useLocation';
 
 /*
  * Component Lifecycle
@@ -17,46 +18,21 @@ import Spinner from './Spinner';
  *
  */
 
-// Class-Based Component.
-class App extends React.Component {
+const App = () => {
 
-    // Alternate way to initialize state.
-    state = { lat: null, lon: null, errorMessage: "" };
+    const [lat, lon, errorMessage] = useLocation();
 
-    componentDidMount() {
-        // Getting GeoLocation
-        window.navigator.geolocation.getCurrentPosition(
-            (position) =>
-                this.setState({ lat: position.coords.latitude, lon: position.coords.longitude }),
-            (error) =>
-                this.setState({ errorMessage: "Uh-oh! " + error.message })
-        );
+    let content;
+    if (errorMessage) {
+        content = <div>Error: {errorMessage}</div>;
+    } else if (lat && lon) {
+        content = <SeasonDisplay lat={lat} lon={lon} />;
+    } else {
+        content = <Spinner message="Please accept the location access request" />;
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("My component was just updated. It re-rendered.")
-    }
-
-    // Helper function
-    renderContent() {
-        if (this.state.errorMessage && !this.state.lat) {
-            return <div>{this.state.errorMessage}</div>;
-        } else if (this.state.lat && this.state.lon) {
-            return <SeasonDisplay lat={ this.state.lat } lon={ this.state.lon } />;
-        } else {
-            return <Spinner message="Please accept the location access request" />;
-        }
-    }
-
-    // React requires us to extend render.
-    render() {
-        return (
-            <div>
-                { this.renderContent() }
-            </div>
-        );
-    }
-}
+    return <div className="border red">{content}</div>;
+};
 
 ReactDOM.render(
     <App />,
